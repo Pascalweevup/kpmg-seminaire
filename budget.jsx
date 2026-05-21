@@ -7,8 +7,8 @@ const budgetData = {
         "lot": 1,
         "lotLabel": "Lot 1 : Hébergement",
         "name": "Pullman La Défense",
-        "paxCount": 100,
-        "paxLabel": "100 participants max (nuitées : 40 le 21/10, 100 le 22/10)",
+        "paxCount": 140,
+        "paxLabel": "Base 140 participants (nuitées : 40 le 21/10, 100 le 22/10)",
         "prestationHT": 28229.60,
         "prestationTTC": 30902.34,
         "prestationTVA": 2672.74,
@@ -29,8 +29,8 @@ const budgetData = {
         "lot": 1,
         "lotLabel": "Lot 1 : Hébergement",
         "name": "Méridien Arc de Triomphe",
-        "paxCount": 100,
-        "paxLabel": "100 participants max (nuitées : 40 le 21/10, 100 le 22/10)",
+        "paxCount": 140,
+        "paxLabel": "Base 140 participants (nuitées : 40 le 21/10, 100 le 22/10)",
         "prestationHT": 33000.80,
         "prestationTTC": 36182.58,
         "prestationTVA": 3181.78,
@@ -51,8 +51,8 @@ const budgetData = {
         "lot": 2,
         "lotLabel": "Lot 2 : Déjeuner",
         "name": "Billy Billy",
-        "paxCount": 100,
-        "paxLabel": "Base 100 participants",
+        "paxCount": 240,
+        "paxLabel": "Base 240 participants",
         "prestationHT": 11890.91,
         "prestationTTC": 14269.09,
         "prestationTVA": 2378.18,
@@ -72,8 +72,8 @@ const budgetData = {
         "lot": 2,
         "lotLabel": "Lot 2 : Déjeuner",
         "name": "IT Italian Trattoria",
-        "paxCount": 100,
-        "paxLabel": "Base 100 participants",
+        "paxCount": 240,
+        "paxLabel": "Base 240 participants",
         "prestationHT": 10669.45,
         "prestationTTC": 12803.34,
         "prestationTVA": 2133.89,
@@ -223,14 +223,10 @@ export default function App() {
                         <div>
                             <div className="flex items-center gap-3">
                                 <span className="bg-[#00338D] font-bold px-3 py-1 text-sm tracking-wider uppercase rounded border border-white/20">AO Séminaire</span>
-                                <span className="text-slate-400 text-xs font-mono">ID: KPMG-2026-REG</span>
                             </div>
                             <h1 className="text-2xl lg:text-3xl font-extrabold tracking-tight mt-2 font-heading">
                                 KPMG <span className="font-light text-slate-300">— Séminaire Associés Régionaux</span>
                             </h1>
-                            <p className="text-sm text-slate-300 mt-1 max-w-2xl">
-                                Outil d'aide à la décision : configurez les lots et observez les budgets d'honoraires et de prestations.
-                            </p>
                         </div>
 
                         <div className="flex flex-wrap gap-2 bg-slate-900/40 p-1.5 rounded-xl border border-white/5">
@@ -282,7 +278,7 @@ export default function App() {
                                         <span className="text-[10px] bg-[#00338D] text-white font-bold px-2 py-0.5 rounded tracking-wide uppercase">Lot 1</span>
                                         <h3 className="text-md font-bold text-[#0C2340] mt-1">Hébergement</h3>
                                     </div>
-                                    <span className="text-xs text-slate-500 font-mono">Base 100 participants</span>
+                                    <span className="text-xs text-slate-500 font-mono">Base 140 participants</span>
                                 </div>
                                 <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                                     {/* Pullman Option */}
@@ -303,7 +299,7 @@ export default function App() {
                                             <span className="text-lg font-extrabold text-[#0C2340] font-mono">{formatEur(budgetData.lot1_pullman.totalHT)}</span>
                                         </div>
                                         <div className="text-[11px] text-[#00338D]/80 text-right mt-0.5 font-semibold">
-                                            Soit {formatEur(budgetData.lot1_pullman.totalHT / 100)} HT / pax
+                                            Soit {formatEur(budgetData.lot1_pullman.totalHT / budgetData.lot1_pullman.paxCount)} HT / pax
                                         </div>
                                     </label>
 
@@ -325,7 +321,7 @@ export default function App() {
                                             <span className="text-lg font-extrabold text-[#0C2340] font-mono">{formatEur(budgetData.lot1_meridien.totalHT)}</span>
                                         </div>
                                         <div className="text-[11px] text-[#00338D]/80 text-right mt-0.5 font-semibold">
-                                            Soit {formatEur(budgetData.lot1_meridien.totalHT / 100)} HT / pax
+                                            Soit {formatEur(budgetData.lot1_meridien.totalHT / budgetData.lot1_meridien.paxCount)} HT / pax
                                         </div>
                                     </label>
                                 </div>
@@ -338,7 +334,7 @@ export default function App() {
                                         <span className="text-[10px] bg-[#00338D] text-white font-bold px-2 py-0.5 rounded tracking-wide uppercase">Lot 2</span>
                                         <h3 className="text-md font-bold text-[#0C2340] mt-1">Déjeuner</h3>
                                     </div>
-                                    <span className="text-xs text-slate-500 font-mono">Base 100 participants</span>
+                                    <span className="text-xs text-slate-500 font-mono">Base 240 participants</span>
                                 </div>
                                 <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                                     {/* Billy Billy */}
@@ -359,7 +355,7 @@ export default function App() {
                                             <span className="text-lg font-extrabold text-[#0C2340] font-mono">{formatEur(budgetData.lot2_billy_billy.totalHT)}</span>
                                         </div>
                                         <div className="text-[11px] text-[#00338D]/80 text-right mt-0.5 font-semibold">
-                                            Soit {formatEur(budgetData.lot2_billy_billy.totalHT / 100)} HT / pax
+                                            Soit {formatEur(budgetData.lot2_billy_billy.totalHT / budgetData.lot2_billy_billy.paxCount)} HT / pax
                                         </div>
                                     </label>
 
@@ -381,7 +377,7 @@ export default function App() {
                                             <span className="text-lg font-extrabold text-[#0C2340] font-mono">{formatEur(budgetData.lot2_it_trattoria.totalHT)}</span>
                                         </div>
                                         <div className="text-[11px] text-[#00338D]/80 text-right mt-0.5 font-semibold">
-                                            Soit {formatEur(budgetData.lot2_it_trattoria.totalHT / 100)} HT / pax
+                                            Soit {formatEur(budgetData.lot2_it_trattoria.totalHT / budgetData.lot2_it_trattoria.paxCount)} HT / pax
                                         </div>
                                     </label>
                                 </div>
@@ -415,7 +411,7 @@ export default function App() {
                                             <span className="text-lg font-extrabold text-[#0C2340] font-mono">{formatEur(budgetData.lot3_duplex.totalHT)}</span>
                                         </div>
                                         <div className="text-[11px] text-[#00338D]/80 text-right mt-0.5 font-semibold">
-                                            Soit {formatEur(budgetData.lot3_duplex.totalHT / 240)} HT / pax
+                                            Soit {formatEur(budgetData.lot3_duplex.totalHT / budgetData.lot3_duplex.paxCount)} HT / pax
                                         </div>
                                     </label>
 
@@ -437,7 +433,7 @@ export default function App() {
                                             <span className="text-lg font-extrabold text-[#0C2340] font-mono">{formatEur(budgetData.lot3_yachts.totalHT)}</span>
                                         </div>
                                         <div className="text-[11px] text-[#00338D]/80 text-right mt-0.5 font-semibold">
-                                            Soit {formatEur(budgetData.lot3_yachts.totalHT / 240)} HT / pax
+                                            Soit {formatEur(budgetData.lot3_yachts.totalHT / budgetData.lot3_yachts.paxCount)} HT / pax
                                         </div>
                                     </label>
                                 </div>
@@ -548,21 +544,31 @@ export default function App() {
                                         
                                         <div className="bg-white p-3 rounded-lg border border-slate-200/60 flex justify-between items-center">
                                             <div>
-                                                <span className="font-medium text-slate-700 block text-[11px]">Lot 1 & 2 (Héb. + Déj.)</span>
-                                                <span className="text-[9px] text-slate-400">Base 100 participants</span>
+                                                <span className="font-medium text-slate-700 block text-[11px]">Lot 1 (Hébergement)</span>
+                                                <span className="text-[9px] text-slate-400">Base {hotelData.paxCount} participants</span>
                                             </div>
                                             <span className="font-bold text-[#00338D] text-[13px] font-mono">
-                                                {formatEur((hotelData.totalHT + lunchData.totalHT) / 100)} HT <span className="text-[9px] font-normal text-slate-500 font-sans">/pers.</span>
+                                                {formatEur(hotelData.totalHT / hotelData.paxCount)} HT <span className="text-[9px] font-normal text-slate-500 font-sans">/pers.</span>
+                                            </span>
+                                        </div>
+
+                                        <div className="bg-white p-3 rounded-lg border border-slate-200/60 flex justify-between items-center">
+                                            <div>
+                                                <span className="font-medium text-slate-700 block text-[11px]">Lot 2 (Déjeuner)</span>
+                                                <span className="text-[9px] text-slate-400">Base {lunchData.paxCount} participants</span>
+                                            </div>
+                                            <span className="font-bold text-[#00338D] text-[13px] font-mono">
+                                                {formatEur(lunchData.totalHT / lunchData.paxCount)} HT <span className="text-[9px] font-normal text-slate-500 font-sans">/pers.</span>
                                             </span>
                                         </div>
 
                                         <div className="bg-white p-3 rounded-lg border border-slate-200/60 flex justify-between items-center">
                                             <div>
                                                 <span className="font-medium text-slate-700 block text-[11px]">Lot 3 (Soirée {totalOptionsHT > 0 && '+ opt.'})</span>
-                                                <span className="text-[9px] text-slate-400">Base 240 participants</span>
+                                                <span className="text-[9px] text-slate-400">Base {eveningData.paxCount} participants</span>
                                             </div>
                                             <span className="font-bold text-[#00338D] text-[13px] font-mono">
-                                                {formatEur((eveningData.totalHT + totalOptionsHT) / 240)} HT <span className="text-[9px] font-normal text-slate-500 font-sans">/pers.</span>
+                                                {formatEur((eveningData.totalHT + totalOptionsHT) / eveningData.paxCount)} HT <span className="text-[9px] font-normal text-slate-500 font-sans">/pers.</span>
                                             </span>
                                         </div>
                                     </div>
@@ -595,12 +601,6 @@ export default function App() {
                     <LotDetailedComparison lotId={3} options={['lot3_duplex', 'lot3_yachts']} />
                 )}
             </main>
-            <footer className="bg-[#0C2340] text-slate-400 text-xs py-8 mt-12 border-t border-slate-800">
-                <div className="max-w-7xl mx-auto px-4 text-center">
-                    <p>© 2026 KPMG Séminaire Financier. Tous droits réservés.</p>
-                    <p className="mt-2 text-slate-600">Calculs certifiés conformes aux devis de l'appel d'offres.</p>
-                </div>
-            </footer>
         </div>
     );
 }
@@ -738,7 +738,7 @@ function ProviderDetailsCard({ data }) {
                     <span className="font-mono">{formatEur(data.totalTTC)}</span>
                 </div>
                 <div className="border-t border-slate-200/60 my-2 pt-2 text-[10px] flex justify-between items-center text-[#00338D]/90">
-                    <span>Tarif moyen par participant :</span>
+                    <span>Tarif par participant :</span>
                     <span className="font-bold font-mono">
                         {formatEur(data.totalHT / data.paxCount)} HT / pax ({formatEur(data.totalTTC / data.paxCount)} TTC)
                     </span>
