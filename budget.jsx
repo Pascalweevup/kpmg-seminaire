@@ -573,13 +573,6 @@ export default function App() {
                                         </div>
                                     </div>
 
-                                    {/* Config Details info */}
-                                    <div className="p-4 bg-slate-100/50 text-[10px] text-slate-500 flex items-start">
-                                        <IconInfo />
-                                        <p className="leading-relaxed">
-                                            Les montants indiqués ci-dessus correspondent à la configuration active de votre sélection. Vous pouvez imprimer cette page ou accéder aux tables d'offres complètes dans les onglets.
-                                        </p>
-                                    </div>
                                 </div>
                             </div>
                         </div>
